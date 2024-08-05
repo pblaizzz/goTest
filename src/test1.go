@@ -92,6 +92,7 @@ func main() {
 	delete(qMap, "hh")
 	fmt.Println(qMap)
 	descMap()
+	testStruct() //类型的定义和别名
 
 }
 func descMap() {
@@ -129,4 +130,38 @@ func descMap() {
 	for _, v := range keys {
 		fmt.Println(v) //这里输出的是切片的值
 	}
+
+}
+
+// 自定义结构体
+func testStruct() {
+	type typeAlias string //自定义新类型
+
+	type newOne = string            //类型的别名
+	var a typeAlias                 //声明 定义的类型
+	var b newOne                    //声明设置了别名的类型
+	fmt.Printf("type of a:%T\n", a) //type of a:main.typeAlias
+	fmt.Printf("type of b:%T\n", b) //type of b:string
+
+	//定义结构体
+	type stu struct {
+		name string
+		age  int
+	}
+	//声明结构体并赋值
+	var s1 stu
+	s1.name = "小名"
+	s1.age = 12
+	fmt.Println("结构体=====", s1)
+
+	//匿名结构体
+	var persion struct {
+		name string
+		age  int
+	}
+	persion.name = "哈哈哈"
+	persion.age = 12
+	fmt.Print("", persion)
+
+	//指针类型结构体
 }
