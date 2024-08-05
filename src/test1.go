@@ -145,23 +145,29 @@ func testStruct() {
 
 	//定义结构体
 	type stu struct {
-		name string
-		age  int
+		Name string
+		Age  int
 	}
 	//声明结构体并赋值
 	var s1 stu
-	s1.name = "小名"
-	s1.age = 12
+	s1.Name = "小名"
+	s1.Age = 12
 	fmt.Println("结构体=====", s1)
 
 	//匿名结构体
 	var persion struct {
-		name string
-		age  int
+		Name string
+		Age  int
 	}
-	persion.name = "哈哈哈"
-	persion.age = 12
+	persion.Name = "哈哈哈"
+	persion.Age = 12
 	fmt.Print("", persion)
-
 	//指针类型结构体
+	var pp = new(stu)
+	pp.Name = "指针"
+	pp.Age = 112
+	fmt.Printf("%T\n", pp)
+	fmt.Printf("111=", pp)
+	fmt.Printf("p2=%#v\n", pp)
+
 }
