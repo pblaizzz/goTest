@@ -93,6 +93,7 @@ func main() {
 	fmt.Println(qMap)
 	descMap()
 	testStruct() //类型的定义和别名
+	structTest1()
 
 }
 func descMap() {
@@ -169,5 +170,49 @@ func testStruct() {
 	fmt.Printf("%T\n", pp)
 	fmt.Printf("111=", pp)
 	fmt.Printf("p2=%#v\n", pp)
+
+	//键值对初始化
+	p := &stu{
+		Name: "键值对初始化",
+		Age:  123,
+	}
+	fmt.Printf("键值对初始化p=%#v\n", p)
+
+	//使用值的列表初始化
+	p1 := &stu{
+		"值的列表初始化",
+		12,
+	}
+	fmt.Printf("值的列表初始化p1=%#v\n", p1)
+}
+
+func structTest1() {
+	type people struct {
+		Name string
+		age  int
+	}
+
+	m := make(map[string]*people) //key 是String类型 映射的值是*people
+	stus := []people{
+		{Name: "test1", age: 1},
+		{Name: "test2", age: 2},
+		{Name: "test3", age: 3},
+		{Name: "test4", age: 4},
+		{Name: "test5", age: 5},
+	}
+	for i := range stus {
+		fmt.Println("i===========", i) //下标
+
+	}
+	for n, stu := range stus {
+		m[stu.Name] = &stu //指向stu的地址
+		fmt.Println("m========", m)
+		fmt.Println("stu========", stu)
+		fmt.Println("n========", n)
+	}
+	for k, v := range m {
+		fmt.Println(k, "=>", v.Name, v.age)
+	}
+	fmt.Println(m)
 
 }
