@@ -209,6 +209,7 @@ func structTest1() {
 		fmt.Println("m========", m)
 		fmt.Println("stu========", stu)
 		fmt.Println("n========", n)
+
 	}
 	for k, v := range m {
 		fmt.Println(k, "=>", v.Name, v.age)
